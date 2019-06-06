@@ -34,7 +34,7 @@ void setup()
   background(255, 204, 0);
   port = new Serial(this, COM_PORT, 38400);
   
-  String File = "/home/kshitiz/sketchbook/Localisation_Using_RSSI_Method_2/anchor.csv";
+  String File = "/home/kshitiz/sketchbook/Localisation_Using_RSSI_Method_3_Average_/anchor.csv";
   BufferedReader br = null;
   String line = "";
   String cvsSplitBy = ",";
@@ -65,7 +65,7 @@ void setup()
     }
   }
   
-  File = "/home/kshitiz/sketchbook/Localisation_Using_RSSI_Method_2/tag.csv";
+  File = "/home/kshitiz/sketchbook/Localisation_Using_RSSI_Method_3_Average_/tag.csv";
   br = null;
   line = "";
   cvsSplitBy = ",";
@@ -121,7 +121,6 @@ void serial2Event(Serial port)
 
   if (port.available()>0)
   {
-
     byte nByte = (byte)port.read();
 
     header[byte_received] = nByte;

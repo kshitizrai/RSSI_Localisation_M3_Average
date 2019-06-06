@@ -11,7 +11,7 @@ public class TAG_File {
 
   public void addition(int anchor_index, int RSSI)
   {
-    anchor_received ref = new anchor_received(anchor_index, RSSI);
+    anchor_received ref = new anchor_received(anchor_index,RSSI);
     int i=0;
     int flag=0;
     for (i=0; i<connected.size(); i++)
@@ -19,7 +19,7 @@ public class TAG_File {
       anchor_received ref2 = connected.get(i);
       if (ref2.indexRequest() == anchor_index)
       {
-        connected.set(i, ref);
+        (connected.get(i)).avg_function(RSSI);
         flag=1;
         break;
       }
@@ -38,11 +38,15 @@ public class TAG_File {
          if(temp == 0)
          {
           flag2 = false;
+          println("FALSE");
           break;
          }
       }
       if(flag2)
+      {
+        println("TRUE");  
         calculate_point();
+      }
     }
   }
   
@@ -110,6 +114,7 @@ public class TAG_File {
     {
       (connected.get(i)).print();
     }
+    println("*********************************");
   }
 
   public void Anchor_Connected()

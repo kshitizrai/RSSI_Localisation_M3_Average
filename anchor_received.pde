@@ -24,6 +24,7 @@ public class anchor_received
    this.YCor = anchor_ref.Anchor_YCor();
    this.distance = ((double)this.RSSI-A)/(10*n);
    this.distance = (Math.pow((10),this.distance))*100;
+   this.RSSI = 0;
    this.value_received = 0; 
   }
  }

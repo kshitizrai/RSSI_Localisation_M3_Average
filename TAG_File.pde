@@ -61,14 +61,12 @@ public class TAG_File {
   double r3 = (connected.get(2)).Request_Distance();
   println("R1="+r1+" R2="+r2+" R3="+r3);
   
-  Tag_color = color(0,0,255);
-  fill(Tag_color);
+  stroke(0);
+  noFill();
   ellipse((float)x1/pixel_bred , (float)y1/pixel_leng , (float)r1/pixel_bred ,(float)r1/pixel_leng);
-  Tag_color = color(0,0,255);
-  fill(Tag_color);
+  noFill();
   ellipse((float)x2/pixel_bred , (float)y2/pixel_leng , (float)r2/pixel_bred ,(float)r2/pixel_leng);
-  Tag_color = color(0,0,255);
-  fill(Tag_color);
+  noFill();
   ellipse((float)x3/pixel_bred , (float)y3/pixel_leng , (float)r3/pixel_bred ,(float)r3/pixel_leng);
   
   y_est += (x2-x3)*(Math.pow((double)x2,2)-Math.pow((double)x1,2)) + (Math.pow((double)y2,2)-Math.pow((double)y1,2)) + (Math.pow(r1,2)-Math.pow(r2,2));

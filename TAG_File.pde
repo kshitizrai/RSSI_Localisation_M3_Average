@@ -80,6 +80,11 @@ public class TAG_File {
   x_est -= ((y1-y2)*((Math.pow((double)y3,2)-Math.pow((double)y2,2)) + (Math.pow((double)x3,2)-Math.pow((double)x2,2)) + (Math.pow(r2,2)-Math.pow(r3,2))));
   x_est /= (2*((x1-x2)*(y2-y3)-(x2-x3)*(y1-y2)));
   
+  if(x_est<0)
+    x_est = -x_est;
+  if(y_est<0)
+    y_est = -y_est;
+  
   Tag_color = color(0,255,0);
   fill(Tag_color);
   ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);

@@ -8,6 +8,7 @@ public class tag_display {
     this.pix_len=len;
     this.pix_bred=bred;
   }
+  //display the position of the tag
   public void display(int R,int G, int B){
     color Tag_color = color(255,204,0);
     Tag_color = color(R,G,B);

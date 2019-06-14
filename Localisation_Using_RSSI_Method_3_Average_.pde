@@ -44,13 +44,13 @@ void setup()
   size(1000, 1050);
   background(255, 204, 0);
   port = new Serial(this, COM_PORT, 38400);
- 
+   
   table=loadTable("C:/Users/KEVIN/Documents/Processing/localization_gps/data/anchor2.csv","header");
   table.clearRows();
   println("row no init",table.getRowCount());
 
   cp5 = new ControlP5(this);
- 
+ //GUI for user input for anchor data
    g1 = cp5.addGroup("Anchor Data")
                 .setBackgroundColor(color(0, 64))
                 .setBackgroundHeight(1000).setPosition(0,10).setSize(200,1000)
@@ -237,7 +237,7 @@ public void getAnchor()
 {
   
   background(255, 204, 204);
- 
+//Read the .csv file 
      String File_ = "C:/Users/KEVIN/Documents/Processing/localization_gps/data/anchor2.csv";
     
   BufferedReader br_ = null;

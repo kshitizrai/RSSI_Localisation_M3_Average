@@ -94,26 +94,30 @@ public class TAG_File {
    tag_display tag_ref = new tag_display(x_est,y_est,pixel_bred,pixel_leng);
    tag_pos.add(tag_ref); 
    background(255, 204, 0);
-   int i=tag_pos.size();
-   println("i value"+i);
- if(i>5){
+  int i=tag_pos.size();
+  //Display the current position and the past 4 positions of the tag
+   if(i>5){
   for(j=(i-5);j<tag_pos.size();j++){
     tag_display tag_ref1 = tag_pos.get(j);
+    //5th position of tag-white
     if(j==(i-5)){
   tag_ref1.display(255,255,255);
      }
+     //4th position of tag-black
    if(j==(i-4)){
   tag_ref1.display(0,0,0);
    
   }  
+  //3rd position of tag-purple
   if(j==(i-3)){
   tag_ref1.display(204,0,102);
    
   }
+  //2nd or previous position of tag-blue
   if(j==(i-2)){
   tag_ref1.display(0,0,204);
   }
-  
+  //1st or current position of tag-green
   if(j==(i-1)){
   tag_ref1.display(0,204,0);
   }
@@ -147,17 +151,17 @@ public class TAG_File {
       }
     }
   }
- // println("j value"+j);
+
   
   
   }
  }
  /* Tag_color = color(0,255,0);
   fill(Tag_color);
-  ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);
+  ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);*/
   println("X estimate : " + x_est);
   println("Y estimate : " + y_est);
-  println("*******************\n");*/
+  println("*******************\n");
 
   y_est = 0;
   x_est = 0;

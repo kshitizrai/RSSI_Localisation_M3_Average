@@ -158,10 +158,10 @@ public class TAG_File {
  }
  /* Tag_color = color(0,255,0);
   fill(Tag_color);
-  ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);*/
+  ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);
   println("X estimate : " + x_est);
   println("Y estimate : " + y_est);
-  println("*******************\n");
+  println("*******************\n");*/
 
   y_est = 0;
   x_est = 0;

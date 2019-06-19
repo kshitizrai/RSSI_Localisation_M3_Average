@@ -13,7 +13,7 @@ public class Anchor  {
    this.Anchor_X = (Anchor_X);
    this.Anchor_Y = (Anchor_Y);
    this.n = n;
-   this.A = A;
+   this.A = A*(-1);
    fill(this.Anchor_color);
    ellipse(this.Anchor_X/pixel_bred , this.Anchor_Y/pixel_leng , 50 ,50);
   }

@@ -2,8 +2,11 @@ public class TAG_File {
 
   private int index;
   private ArrayList<anchor_received> connected = new ArrayList<anchor_received>();
+  private ArrayList<tag_display> tag_pos = new ArrayList<tag_display>();
   private double x_est = 0;
   private double y_est = 0;
+  int j=1;
+  
   TAG_File(int x)
   {
     this.index= x;
@@ -52,8 +55,9 @@ public class TAG_File {
   
  public void calculate_point()
  {
-   color Tag_color = color(255,204,0);
    
+ // color Tag_color = color(255,204,0);
+ 
   double x1 = (connected.get(0)).XCor; 
   double y1 = (connected.get(0)).YCor;
   double x2 = (connected.get(1)).XCor; 
@@ -84,13 +88,80 @@ public class TAG_File {
     x_est = -x_est;
   if(y_est<0)
     y_est = -y_est;
+  println("X estimate : " + x_est);
+  println("Y estimate : " + y_est);
+  println("*******************\n");
+   tag_display tag_ref = new tag_display(x_est,y_est,pixel_bred,pixel_leng);
+   tag_pos.add(tag_ref); 
+   background(255, 204, 0);
+  int i=tag_pos.size();
+  //Display the current position and the past 4 positions of the tag
+   if(i>5){
+  for(j=(i-5);j<tag_pos.size();j++){
+    tag_display tag_ref1 = tag_pos.get(j);
+    //5th position of tag-white
+    if(j==(i-5)){
+  tag_ref1.display(255,255,255);
+     }
+     //4th position of tag-black
+   if(j==(i-4)){
+  tag_ref1.display(0,0,0);
+   
+  }  
+  //3rd position of tag-purple
+  if(j==(i-3)){
+  tag_ref1.display(204,0,102);
+   
+  }
+  //2nd or previous position of tag-blue
+  if(j==(i-2)){
+  tag_ref1.display(0,0,204);
+  }
+  //1st or current position of tag-green
+  if(j==(i-1)){
+  tag_ref1.display(0,204,0);
+  }
+    String File = "C:/Users/KEVIN/Documents/anchor.csv";
+  BufferedReader br = null;
+  String line = "";
+  String cvsSplitBy = ",";
   
-  Tag_color = color(0,255,0);
+  try {
+    br = new BufferedReader(new FileReader(File));
+    while ((line = br.readLine()) != null) {
+      String[] splited = line.split(cvsSplitBy);
+      Anchor anchor_ref = new Anchor(splited[0],float(splited[1]),float(splited[2]),float(splited[3]),float(splited[4]));
+      anchors.add(anchor_ref);
+      
+    }
+  }
+  catch (FileNotFoundException e) {
+    e.printStackTrace();
+  } 
+  catch (IOException e) {
+    e.printStackTrace();
+  } 
+  finally {
+    if (br != null) {
+      try {
+        br.close();
+      }
+      catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  
+  
+  }
+ }
+ /* Tag_color = color(0,255,0);
   fill(Tag_color);
   ellipse((float)x_est/pixel_bred , (float)y_est/pixel_leng , 20 ,20);
   println("X estimate : " + x_est);
   println("Y estimate : " + y_est);
-  println("*******************\n");
+  println("*******************\n");*/
 
   y_est = 0;
   x_est = 0;
